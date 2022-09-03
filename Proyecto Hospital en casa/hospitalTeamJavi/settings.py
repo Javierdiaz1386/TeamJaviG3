@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'hospitalTeamJavi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'd6r5b26oi7ackb',
+    'USER': 'jurqecflrjteau',
+    'PASSWORD': 'fa11118721fdbbee4d334db45809bf5b68f32236a5712d7241d4de2a344aa2f3',
+    'HOST': 'ec2-44-207-133-100.compute-1.amazonaws.com',
+    'PORT': '5432',
     }
 }
 
@@ -126,3 +130,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'hospitalApp.User'
+import django_heroku
+django_heroku.settings(locals())
