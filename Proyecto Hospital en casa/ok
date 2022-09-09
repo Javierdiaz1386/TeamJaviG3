@@ -56,7 +56,7 @@ class Pacientes(models.Model):
     numeroIdentificacionPaciente = models.IntegerField()
     nombrePaciente = models.CharField(max_length=45)
     apellidosPaciente = models.CharField(max_length=45)
-    telefonoPaciente = models.IntegerField()
+    telefonoPaciente = models.CharField(max_length=12)
     direccionPaciente = models.CharField(max_length=45)
     municipio = models.CharField(max_length=45)
     departamento = models.CharField(max_length=45)
