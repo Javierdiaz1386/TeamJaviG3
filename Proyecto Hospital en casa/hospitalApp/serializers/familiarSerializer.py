@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from models.familiar import FamiliarModels
+from hospitalApp.models.familiar import FamiliarModels
 
 class FamiliarSerializer(serializers.ModelSerializer):
     class Meta:

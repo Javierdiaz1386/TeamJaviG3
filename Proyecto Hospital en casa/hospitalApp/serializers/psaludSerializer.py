@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from models.Psalud import PsaludModels
+from hospitalApp.models.Psalud import PsaludModels
 
 class PsaludSerializer(serializers.ModelSerializer):
     class Meta:
