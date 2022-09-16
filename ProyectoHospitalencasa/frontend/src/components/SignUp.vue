@@ -1,5 +1,5 @@
 <template>
-
+    <div>
     <div class="signUp_user">
         <div class="container_signUp_user">
             <h2>Registrarse</h2>
@@ -19,6 +19,7 @@
             </form>
         </div>
     </div>
+    
 </template>
 
 <script>
