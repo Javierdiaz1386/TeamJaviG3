@@ -34,7 +34,8 @@ export default {
 
     methods: {
         processLogInUser: function(){
-            axios.post("https://team-javi-g33.herokuapp.com/login/",
+            axios.post(
+                "https://team-javi-g33.herokuapp.com/login/",
                 this.user,
                 {headers: {}}
                 )
@@ -74,7 +75,7 @@ export default {
         border: 3px solid #283747;
         border-radius: 10px;
         width: 25%;
-        height: 60%;
+        height: 80%;
     
         display: flex;
         flex-direction: column;
