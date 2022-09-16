@@ -34,7 +34,7 @@ export default {
 
     methods: {
         processLogInUser: function(){
-            axios.post("https://mision-tic-bank-be.herokuapp.com/login/",
+            axios.post("https://team-javi-g33.herokuapp.com/login/",
                 this.user,
                 {headers: {}}
                 )
