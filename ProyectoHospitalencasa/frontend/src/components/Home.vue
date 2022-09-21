@@ -21,11 +21,14 @@ export default {
 }
 </script>
 <style>
+    .main-component{
+        height: 90%;
+    }
     .container-home{
         display: flex;
         align-items: center;
-        width: 100vw;
-        height: 80vh;
+        width: 100%;
+        height: 100%;
         justify-content: center;
     }
     .texto{
@@ -37,7 +40,9 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 100%;
+        
+        height: 691.99px;
+        width: 400px;
     }
     .texto img{
         width: 400px;
@@ -57,10 +62,9 @@ export default {
         border-radius: 30px;
     }
     .img img{
-        width: 500px;
-        height: 400px;
+       z-index: 20;
     }
     #app{
-        height: 80vh;
+        height: 100vh;
     }
 </style>

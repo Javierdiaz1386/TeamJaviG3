@@ -2,14 +2,16 @@
 
     <div class="logIn_user">
         <div class="container_logIn_user">
-            <h2>Iniciar sesión</h2>
+            <h2>Sala de Ayuda</h2>
 
             <form   v-on:submit.prevent="processLogInUser" >
-                <input type="text" v-model="user.username" placeholder="Usuario">
+                <input type="text"  placeholder="Nombre completo">
                 <br>
-                <input type="password" v-model="user.password" placeholder="Contraseña">
+                <input type="email"  placeholder="Correo">
                 <br>
-                <button type="submit">Ingresar </button>
+                <textarea  name="" id="" cols="30" placeholder="indique su queja..." rows="10"></textarea>
+              
+                <button type="submit">Enviar </button>
             </form>
         </div>
 
@@ -75,7 +77,7 @@ export default {
         border: 3px solid #2231a3;
         border-radius: 10px;
         width: 25%;
-        height: 60%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -103,6 +105,25 @@ export default {
         color: rgb(44, 43, 43);
     }
     .logIn_user input:focus{
+        outline: none;
+        border: 2.4px solid #2231a3;
+        border-radius: 2px;
+
+    }
+    .logIn_user textarea{
+        resize: none;
+        height: 80px;
+        width: 100%;
+
+        box-sizing: border-box;
+        padding: 10px 20px;
+        margin: 18px auto;
+
+        border: 1px solid #2231a3;
+        border-radius: 2px;
+        color: rgb(44, 43, 43);
+    }
+    .logIn_user textarea:focus{
         outline: none;
         border: 2.4px solid #2231a3;
         border-radius: 2px;

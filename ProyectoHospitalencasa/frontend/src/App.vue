@@ -57,6 +57,10 @@ export default {
       this.$router.push({ name: "home" });
     },
 
+    loadHelp: function(){
+      this.$router.push({ name: "help" });
+    },
+
     logOut: function () {
       localStorage.clear();
       alert("Sesión Cerrada");
@@ -95,17 +99,19 @@ export default {
     margin: 0;
   }
   header{
-    background-color: rgb(84,96,198);
+    
+    background-color: #5460c6;
     display: flex;
     align-items: center;
-    width: 100vw;
+    width: 100%;
   }
   .container-nav{
     display: flex;
     align-items: center;
-    width: 100vw;
+    width: 100%;
   }
   .ul-nav{
+    z-index: 10;
     display: flex;
     align-items: center;
     width: 70vw;
@@ -125,9 +131,11 @@ export default {
     font-size: 15px;
     background-color: transparent;
     color: white;
+    
   }
   li button:hover{
     cursor: pointer;
-    color: rgb(190, 184, 184);
+    color: #beb8b8;
+
   }
 </style>

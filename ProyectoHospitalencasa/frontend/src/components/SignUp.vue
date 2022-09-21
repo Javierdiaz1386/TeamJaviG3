@@ -5,17 +5,36 @@
             <h2>Registrarse</h2>
 
             <form v-on:submit.prevent="processSignUp">
-                <input type="text" v-model="user.username" placeholder="Username">
+                <select name="select">
+                    <option value="medico" selected>Medico</option>
+                    <option value="auxiliar" >Auxiliar</option>
+                    <option value="paciente">Paciente</option>
+                    <option value="familiar">Familiar</option>
+                </select>
                 <br>
-                <input type="password" v-model="user.password" placeholder="Password">
+                
+                <input type="text" v-model="user.username" placeholder="Usuario">
                 <br>
-                <input type="text" v-model="user.name" placeholder="Name">
+                <input type="text"  placeholder="Nombre">
                 <br>
-                <input type="email" v-model="user.email" placeholder="Email">
+                <input type="text" placeholder="Apellido">
                 <br>
-                <input type="number" vmodel="user.account.balance" placeholder="Initial Balance">
+                <input type="text"  placeholder="Teléfono">
                 <br>
-                <button type="submit">Registrarse</button>
+                <select name="select">
+                    <option value="hombre" selected>Masculino</option>
+                    <option value="mujer" >Femenino</option>
+                    <option value="otros">No quiero especificar</option>
+                </select>
+                <br>
+                <input type="password"  placeholder="Contraseña">
+                <br>
+                <input type="password"  placeholder="Repetir Contraseña">
+                <br>
+            
+            
+
+                <button type="submit">Registro</button>
             </form>
         </div>
     </div>
@@ -76,10 +95,10 @@ export default {
 }
 
 .container_signUp_user {
-    border: 3px solid #283747;
+    border: 3px solid #2231a3;
     border-radius: 10px;
     width: 25%;
-    height: 80%;
+    height: 85%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,7 +106,9 @@ export default {
 }
 
 .signUp_user h2 {
-    color: #283747;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #2231a3;
 }
 
 .signUp_user form {
@@ -95,28 +116,48 @@ export default {
 }
 
 .signUp_user input {
-    height: 40px;
+    height: 30px;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px 20px;
+    padding-left: 10px;
     margin: 5px 0;
-    border: 1px solid #283747;
+    border: 1px solid #2231a3;
+    color: rgb(44, 43, 43);
+    
 }
+.signUp_user select {
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    margin: 5px 0;
+    border: 1px solid #2231a3;
+}
+.signUp_user input:focus{
+        outline: none;
+        border: 2.4px solid #2231a3;
+        border-radius: 2px;
+
+    }
 
 .signUp_user button {
     width: 100%;
     height: 40px;
-    color: #E5E7E9;
-    background: #283747;
-    border: 1px solid #E5E7E9;
-    border-radius: 5px;
     padding: 10px 25px;
     margin: 5px 0 25px 0;
+    color: #ffffff;
+        background: #5460c6;
+        border: 1px solid #E5E7E9;
+
+        border-radius: 5px;
 }
 
 .signUp_user button:hover {
-    color: #E5E7E9;
-    background: crimson;
-    border: 1px solid #283747;
+
+    color: #5460c6;
+        font-weight: bolder;
+        background-color: #beb8b8;
+        transition: 0.4s;
+       
 }
 </style>

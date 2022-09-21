@@ -25,7 +25,6 @@ class UserManage(BaseUserManager):
 
 class UsuarioModel(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(primary_key=True, max_length=45, unique=True)
-   
     perfil = models.CharField(max_length=45)
     nombre = models.CharField(max_length=45)
     apellido = models.CharField(max_length=45)
