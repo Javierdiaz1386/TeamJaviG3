@@ -160,4 +160,27 @@ export default {
         transition: 0.4s;
        
 }
+
+table{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+
+table th{
+    border: 3px solid  brown;
+    width: 200px;
+    height: 30px;
+}
+
+table td{
+    border: 3px solid blueviolet;
+    width: 200px;
+    height: 30px;
+}
 </style>

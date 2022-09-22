@@ -4,7 +4,7 @@ import App from './App.vue';
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
-
+import DetailedSearch from './components/DetailedSearch.vue'
 import Help from './components/Help.vue'
 
 
@@ -33,6 +33,12 @@ const routes = [{
     name: "help",
     component: Help
   },
+  {
+    path: '/user/Detailed',
+    name: "DetailedSearch",
+    component: DetailedSearch
+  },
+
 ];
 
 const router = createRouter({

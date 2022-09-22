@@ -4,12 +4,13 @@
       <header>
         <nav class="container-nav">
           <h2>Capri Health EPS</h2>
-            <ul class="ul-nav">
-                <li><button v-if="!is_auth" v-on:click="loadHome"> Inicio </button></li>
-                <li><button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button></li>
-                <li><button v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button></li>
-                <li><button v-if="!is_auth" v-on:click="loadHelp"> Ayuda </button></li>
-            </ul>
+          <ul class="ul-nav">
+            <li><button v-if="!is_auth" v-on:click="loadHome"> Inicio </button></li>
+            <li><button v-if="!is_auth" v-on:click="loadDetailedSearch"> Consulta </button></li>
+            <li><button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button></li>
+            <li><button v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button></li>
+            <li><button v-if="!is_auth" v-on:click="loadHelp"> Ayuda </button></li>
+          </ul>
         </nav>
       </header>
     </div>
@@ -57,7 +58,7 @@ export default {
       this.$router.push({ name: "home" });
     },
 
-    loadHelp: function(){
+    loadHelp: function () {
       this.$router.push({ name: "help" });
     },
 
@@ -70,7 +71,9 @@ export default {
     loadAccount: function () {
       this.$router.push({ name: "account" });
     },
-
+    loadDetailedSearch: function () {
+      this.$router.push({ name: "DetailedSearch" });
+    },
     completedLogIn: function (data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
@@ -93,49 +96,56 @@ export default {
 </script>
 
 <style>
-  *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-  header{
-    
-    background-color: #5460c6;
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .container-nav{
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .ul-nav{
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    width: 70vw;
-    justify-content: flex-end;
-    list-style: none;
-  }
-  .container-nav h2 {
-    color: white;
-    width: 30vw;
-    margin: 12px;
-  }
-  .ul-nav li {
-    margin: 12px;
-  }
-  li button{
-    border: none;
-    font-size: 15px;
-    background-color: transparent;
-    color: white;
-    
-  }
-  li button:hover{
-    cursor: pointer;
-    color: #beb8b8;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-  }
+header {
+
+  background-color: #5460c6;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.container-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.ul-nav {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.container-nav h2 {
+  color: white;
+  width: 30vw;
+  margin: 12px;
+}
+
+.ul-nav li {
+  margin: 12px;
+}
+
+li button {
+  border: none;
+  font-size: 15px;
+  background-color: transparent;
+  color: white;
+
+}
+
+li button:hover {
+  cursor: pointer;
+  color: #beb8b8;
+
+}
 </style>
