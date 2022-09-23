@@ -9,7 +9,7 @@
                 <br>
                 <input type="email"  placeholder="Correo">
                 <br>
-                <textarea  name="" id="" cols="30" placeholder="indique su queja..." rows="10"></textarea>
+                <textarea  name="" id="" cols="30" placeholder="Deje su comentario..." rows="10"></textarea>
               
                 <button type="submit">Enviar </button>
             </form>

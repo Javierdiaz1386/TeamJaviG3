@@ -1,16 +1,13 @@
 <template>
-    <div class="container">
+    <div class="container-detailed-search">
         <form action="">
             <label for="">
-                <h2>Tipo consulta:</h2>
-                <select name="" id="">
-                    <option value="Detallada" selected>Detallada</option>
-
-                    <option value="Global">Global</option>
-
-                </select>
+                <h2>Seleccione ID paciente:</h2>
+                
                 <input id="index" type="number">
-                <button type="submit">Consultar</button>
+                <router-link :to="{name: 'DetailedSearchidd'}">
+                <input id='consul' type="button" value="Consultar" >
+            </router-link >
             </label>
 
 
@@ -57,32 +54,16 @@ export default {
 
 </script>
 <style>
-.container {
+.container-detailed-search {
     margin-top: 60px;
     margin-left: 60px;
 }
 
-.container select {
-    height: 40px;
-    width: 20%;
-    font-size: 15px;
-    box-sizing: border-box;
-    padding: 10px 20px;
-    margin: 18px auto;
 
-    border: 1px solid #2231a3;
-    border-radius: 2px;
-    color: rgb(44, 43, 43);
-}
 
-.container select:focus {
-    outline: none;
-    border: 2.4px solid #2231a3;
-    border-radius: 2px;
 
-}
 
-.container input {
+.container-detailed-search input {
     height: 40px;
     width: 20%;
 
@@ -96,14 +77,14 @@ export default {
     color: rgb(44, 43, 43);
 }
 
-.container input:focus {
+.container-detailed-search input:focus {
     outline: none;
     border: 2.4px solid #2231a3;
     border-radius: 2px;
 
 }
 
-.container button {
+#consul{
 
     width: 12%;
     height: 40px;
@@ -117,7 +98,7 @@ export default {
     border-radius: 5px;
 }
 
-.container button:hover {
+#consul:hover {
 
     color: #5460c6;
     font-weight: bolder;
@@ -126,11 +107,12 @@ export default {
 
 }
 
-.container h2 {
+.container-detailed-search h2 {
     color: #2231a3;
 }
-table{
-    display: flex;
+
+table {
+    
     justify-content: center;
     align-items: flex-start;
     height: 100%;
@@ -140,15 +122,21 @@ table{
 }
 
 
-table th{
-    border: 3px solid  #2231a3;
+table th {
+    border: 3px solid #2231a3;
     width: 200px;
     height: 30px;
 }
 
-table td{
+table td {
+    text-align: center;
     border: 3px solid #6974da;
-    width: 200px;
-    height: 30px;
+    max-width: 200px;
+    max-height: 30px;
+    padding: 12px;
+}
+
+#consul{
+    cursor: pointer;
 }
 </style>
