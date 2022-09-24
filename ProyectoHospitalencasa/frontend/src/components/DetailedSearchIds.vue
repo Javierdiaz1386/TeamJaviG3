@@ -2,11 +2,11 @@
     <div class="container-detailed-search">
         <form action="">
             <label for="">
-                <h2>Seleccione ID paciente:</h2>
-
-                <input v-model="ids" id="index" type="number">
                 
-                    <input id='consul' v-on:click="loads" type="button" value="Consultar">
+
+                
+                
+                    <input id='consul' v-on:click="loadss" type="button" value="Consultar Otro">
                 
 
             </label>
@@ -28,7 +28,14 @@
 
 
 
-          
+            <tr v-for="i in apiData">
+                <td v-if="i.id==this.$route.params.id"><strong>{{i.id}}</strong></td>
+                <td v-if="i.id==this.$route.params.id"><strong>{{i.id_psalud}}</strong></td>
+                <td v-if="i.id==this.$route.params.id"><strong>{{i.username}}</strong></td>
+                <td v-if="i.id==this.$route.params.id"><strong>{{i.fecha_nacimiento}}</strong></td>
+                <td v-if="i.id==this.$route.params.id"><strong>{{i.direccion}}</strong></td>
+                <td v-if="i.id==this.$route.params.id"><strong>{{i.ciudad}}</strong></td>
+            </tr> 
         </table>
     </div>
 </template>
@@ -36,7 +43,7 @@
 import { getAPI } from '@/axios-api';
 export default {
 
-    name: "DetailedSearch",
+    name: "DetailedSearchIds",
     data: function () {
         return {
             ids: '',
@@ -55,8 +62,8 @@ export default {
 
     },
     methods:{
-        loads(){
-            this.$router.push("DetailedSearchIds/"+this.ids );
+        loadss(){
+            this.$router.push({name:'DetailedSearch'} );
         }
     }
 }
@@ -99,7 +106,7 @@ export default {
 
 #consul {
 
-    width: 12%;
+    width: 22%;
     height: 40px;
     padding: 10px 25px;
     margin: 5px 0 25px 0;

@@ -6,6 +6,7 @@ import SignUp from './components/SignUp.vue'
 import Home from './components/Home.vue'
 import GlobalSearch from './components/GlobalSearch.vue'
 import DetailedSearch from './components/DetailedSearch.vue'
+import DetailedSearchIds from './components/DetailedSearchIds.vue'
 import Help from './components/Help.vue'
 
 
@@ -44,11 +45,11 @@ const routes = [{
     name: "DetailedSearch",
     component: DetailedSearch
   },
-  {
-    path: '/search/detailed/:id',
-    name: "DetailedSearchidd",
-    component: DetailedSearch
-  },
+   {
+    path: '/search/DetailedSearchIds/:id',
+     name: "DetailedSearchIds",
+    component: DetailedSearchIds
+   },
 
 ];
 
