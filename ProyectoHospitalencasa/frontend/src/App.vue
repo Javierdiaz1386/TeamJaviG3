@@ -2,15 +2,29 @@
   <div id="app" class="app">
     <div class="header">
       <header>
-        <nav class="container-nav">
+        <nav id="menu" class="container-nav">
           <h2>Capri Health EPS</h2>
-          <ul class="ul-nav">
-            <li><button v-if="!is_auth" v-on:click="loadHome"> Inicio </button></li>
-            <li><button v-if="!is_auth" v-on:click="loadDetailedSearch"> Consulta </button></li>
-            <li><button v-if="!is_auth" v-on:click="loadLogIn"> Iniciar Sesión </button></li>
-            <li><button v-if="!is_auth" v-on:click="loadSignUp"> Registrarse </button></li>
-            <li><button v-if="!is_auth" v-on:click="loadHelp"> Ayuda </button></li>
-          </ul>
+         
+          <!-- start nav -->
+          <nav id="menu">
+            <!-- start menu -->
+            <ul>
+              <li><a v-on:click="loadHome">Inicio</a></li>
+              <li><a >Consulta</a>
+                <!-- start menu desplegable -->
+                <ul>
+                  <li><a v-on:click="loadDetailedSearch">Detallada</a></li>
+                  <li><a v-on:click="loadGlobalSearch">Global</a></li>
+                </ul>
+                <!-- end menu desplegable -->
+              </li>
+              <li><a v-on:click="loadLogIn">Iniciar Sesion</a></li>
+              <li><a v-on:click="loadSignUp">Registrarse</a></li>
+              <li><a v-on:click="loadHelp">Ayuda</a></li>
+            </ul>
+            <!-- end menu -->
+          </nav>
+          <!-- end nav -->
         </nav>
       </header>
     </div>
@@ -71,6 +85,9 @@ export default {
     loadAccount: function () {
       this.$router.push({ name: "account" });
     },
+    loadGlobalSearch(){
+            this.$router.push({ name: "GlobalSearch" })
+        },
     loadDetailedSearch: function () {
       this.$router.push({ name: "DetailedSearch" });
     },
@@ -118,7 +135,7 @@ header {
 
 .ul-nav {
   z-index: 10;
-  display: flex;
+  display: none;
   align-items: center;
   width: 70vw;
   justify-content: flex-end;
@@ -127,7 +144,7 @@ header {
 
 .container-nav h2 {
   color: white;
-  width: 30vw;
+  width: 50vw;
   margin: 12px;
 }
 
@@ -147,5 +164,83 @@ li button:hover {
   cursor: pointer;
   color: #beb8b8;
 
+}
+
+/* menu */
+
+#menu ul {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  justify-content: flex-end;
+  list-style: none;
+ margin:0;
+ padding:0;
+}
+
+/* items del menu */
+
+#menu ul li {
+ background-color:#5460c6;
+}
+
+/* enlaces del menu */
+
+#menu ul a {
+ display:block;
+ color:#fff;
+ text-decoration:none;
+ font-weight:400;
+ font-size:15px;
+ padding:10px;
+ font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+ letter-spacing:1px;
+}
+
+/* items del menu */
+
+#menu ul li {
+ position:relative;
+ float:left;
+ margin:0;
+ padding:0;
+}
+
+/* e*/
+
+/* menu desplegable */
+
+#menu ul ul {
+ display:none;
+ position:absolute;
+ top:100%;
+ left:0;
+ background:#eee;
+ padding:0;
+}
+
+/* items del menu desplegable */
+
+#menu ul ul li {
+ float:none;
+ width:150px
+}
+
+/* enlaces de los items del menu desplegable */
+
+#menu ul ul a {
+ line-height:120%;
+ padding:10px 15px;
+}
+
+/* items del menu desplegable al pasar el ratón */
+
+#menu ul li:hover > ul {
+ display:block;
+}
+a{
+  cursor: pointer;
 }
 </style>

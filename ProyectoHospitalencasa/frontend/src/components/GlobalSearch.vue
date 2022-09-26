@@ -1,13 +1,8 @@
 <template>
-    <div class="container-detailed-search">
+    <div class="container-global-search">
         <form action="">
             <label for="">
-                <h2>Seleccione ID paciente:</h2>
-
-                <input v-model="ids" id="index" type="number">
-                
-                    <input id='consul' v-on:click="loads" type="button" value="Consultar">
-                
+                <h2>Pacientes Registrados</h2>
 
             </label>
 
@@ -28,21 +23,35 @@
 
 
 
-          
+
+            <tr v-for="paciente in apiData">
+                <td><strong>{{paciente.id}}</strong></td>
+                <td><strong></strong>{{paciente.id_psalud}}</td>
+                <td><strong></strong>{{paciente.username}}</td>
+                <td><strong></strong>{{paciente.fecha_nacimiento}}</td>
+                <td><strong></strong>{{paciente.direccion}}</td>
+                <td><strong>{{paciente.ciudad}}</strong></td>
+           
+            </tr>
+
+
         </table>
     </div>
 </template>
 <script>
+import axios from 'axios';
 import { getAPI } from '@/axios-api';
-export default {
 
-    name: "DetailedSearch",
+
+
+export default {
+    name: "GlobalSearch",
     data: function () {
         return {
-            ids: '',
             apiData: [],
-            username: localStorage.getItem('username') || "none"
+            
         }
+
     },
     created() {
         getAPI.get('pacienteDetalles/').then(response => {
@@ -51,13 +60,8 @@ export default {
         }).catch(err => {
             console.log(err)
         })
+        
 
-
-    },
-    methods:{
-        loads(){
-            this.$router.push("DetailedSearchIds/"+this.ids );
-        }
     }
 }
 
@@ -67,16 +71,34 @@ export default {
 
 </script>
 <style>
-.container-detailed-search {
-    margin-top: 60px;
-    margin-left: 60px;
+.container-global-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.container-global-search select {
+    height: 40px;
+    width: 20%;
+    font-size: 15px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin: 18px auto;
 
+    border: 1px solid #2231a3;
+    border-radius: 2px;
+    color: rgb(44, 43, 43);
+}
 
+.container-global-search select:focus {
+    outline: none;
+    border: 2.4px solid #2231a3;
+    border-radius: 2px;
 
+}
 
-.container-detailed-search input {
+.container-global-search input {
     height: 40px;
     width: 20%;
 
@@ -90,14 +112,14 @@ export default {
     color: rgb(44, 43, 43);
 }
 
-.container-detailed-search input:focus {
+.container-global-search input:focus {
     outline: none;
     border: 2.4px solid #2231a3;
     border-radius: 2px;
 
 }
 
-#consul {
+.container-global-search button {
 
     width: 12%;
     height: 40px;
@@ -111,7 +133,7 @@ export default {
     border-radius: 5px;
 }
 
-#consul:hover {
+.container-global-search button:hover {
 
     color: #5460c6;
     font-weight: bolder;
@@ -120,12 +142,13 @@ export default {
 
 }
 
-.container-detailed-search h2 {
+.container-global-search h2 {
+    margin-top: 70px;
     color: #2231a3;
 }
 
 table {
-
+    
     justify-content: center;
     align-items: flex-start;
     height: 100%;
@@ -147,9 +170,5 @@ table td {
     max-width: 200px;
     max-height: 30px;
     padding: 12px;
-}
-
-#consul {
-    cursor: pointer;
 }
 </style>

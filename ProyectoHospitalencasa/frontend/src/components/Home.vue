@@ -62,7 +62,7 @@ export default {
         border-radius: 30px;
     }
     .img img{
-       z-index: 20;
+       z-index: 5;
     }
     #app{
         height: 100vh;
