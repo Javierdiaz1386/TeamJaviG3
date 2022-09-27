@@ -19,6 +19,8 @@
                 <br>
                 <input type="text" placeholder="Apellido">
                 <br>
+                <input type="text"  placeholder="Fecha de Nacimiento">
+                <br>
                 <input type="text"  placeholder="Teléfono">
                 <br>
                 <select name="select">
@@ -30,8 +32,6 @@
                 <input type="text"  placeholder="Dirección">
                 <br>
                 <input type="text"  placeholder="Ciudad">
-                <br>
-                <input type="text"  placeholder="Fecha de Nacimiento">
                 <br>
                 <input type="password"  placeholder="Contraseña">
                 <br>
