@@ -19,7 +19,16 @@
                 <!-- end menu desplegable -->
               </li>
               <li><a v-on:click="loadLogIn">Iniciar Sesion</a></li>
-              <li><a v-on:click="loadSignUp">Registrarse</a></li>
+              <li><a >Registrarse</a>
+                <!-- start menu desplegable -->
+                <ul>
+                  <li><a v-on:click="loadSignUpMedico">Médico</a></li>
+                  <li><a v-on:click="loadSignUpAuxiliar">Auxiliar</a></li>
+                  <li><a v-on:click="loadSignUpPaciente">Paciente</a></li>
+                  <li><a v-on:click="loadSignUpFamiliar">Familiar</a></li>
+                </ul>
+                <!-- end menu desplegable -->
+              </li>
               <li><a v-on:click="loadHelp">Ayuda</a></li>
             </ul>
             <!-- end menu -->
@@ -64,9 +73,22 @@ export default {
       this.$router.push({ name: "logIn" })
     },
 
-    loadSignUp: function () {
-      this.$router.push({ name: "signUp" })
+    loadSignUpMedico: function () {
+      this.$router.push({ name: "signUpMedico" })
     },
+
+    loadSignUpAuxiliar: function () {
+      this.$router.push({ name: "signUpAuxiliar" })
+    },
+
+    loadSignUpPaciente: function () {
+      this.$router.push({ name: "signUpPaciente" })
+    },
+
+    loadSignUpFamiliar: function () {
+      this.$router.push({ name: "signUpFamiliar" })
+    },
+
 
     loadHome: function () {
       this.$router.push({ name: "home" });
