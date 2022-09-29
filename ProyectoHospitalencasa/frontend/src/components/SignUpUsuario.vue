@@ -2,16 +2,30 @@
 
     <div class="signUp_user">
         <div class="container_signUp_user">
-            <h2>Registro de Auxiliar</h2>
+            <h2>Registro de Usuario</h2>
 
             <form v-on:submit.prevent="processSignUp">
-                <input type="text" v-model="form.parentesco" placeholder="Parentesco">
-                <br>
-                <input type="email" v-model="form.correo" placeholder="Correo">
-                <br>
-                <input type="text" v-model="form.paciente" placeholder="Paciente">
-                <br>
                 <input type="text" v-model="form.username" placeholder="Username">
+                <br>
+                <input type="password" v-model="form.password" placeholder="Contraseña">
+                <br>
+                <select name="perfil"  type="text" v-model="form.perfil" placeholder="Perfil">
+                    <option value="Psalud">Personal de la salud</option>
+                    <option value="Paciente">Paciente</option>
+                    <option value="Familiar">Familiar</option>
+                    </select>
+                <br>
+                <input type="text" v-model="form.nombre" placeholder="Nombre">
+                <br>
+                <input type="text" v-model="form.apellido" placeholder="Apellido">
+                <br>
+                <input type="text" v-model="form.telefono" placeholder="Telefono">
+                <br>
+                <select name="genero"  type="text" v-model="form.genero" placeholder="Genero">
+                    <option value="hombre" selected>Masculino</option>
+                    <option value="mujer" >Femenino</option>
+                    <option value="otros">No quiero especificar</option>
+                </select>
                 <br>
                
             
@@ -30,17 +44,20 @@ export default {
         return {
             form:{
                 
-                "parentesco": "",
-                "correo": "",
-                "paciente": "",
-                "username":""
+                "username": "",
+                "contrasenna": "",
+                "perfil": "",
+                "nombre":"",
+                "apellido":"",
+                "telefono":"",
+                "genero":""
             }
         }
     },
     methods: {
         
         guardarInfo(){
-            axios.post('https://team-javi-g33.herokuapp.com/crearFamiliar/',this.form).then(data=>{
+            axios.post('https://team-javi-g33.herokuapp.com/crearUsuario/',this.form).then(data=>{
                 // this.form.especialidad = ''
                 // this.form.rol = ''
                 // this.form.username = ''

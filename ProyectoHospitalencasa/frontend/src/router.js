@@ -6,6 +6,7 @@ import LogIn from './components/LogIn.vue'
 import SignUpAuxiliar from './components/SignUpAuxiliar.vue'
 import SignUpPaciente from './components/SignUpPaciente.vue'
 import SignUpFamiliar from './components/SignUpFamiliar.vue'
+import SignUpUsuario from './components/SignUpUsuario.vue'
 import Home from './components/Home.vue'
 import GlobalSearch from './components/GlobalSearch.vue'
 import DetailedSearch from './components/DetailedSearch.vue'
@@ -38,6 +39,11 @@ const routes = [{
     path: '/user/signUpFamiliar',
     name: "signUpFamiliar",
     component: SignUpFamiliar
+  },
+  {
+    path: '/user/signUpUsuario',
+    name: "signUpUsuario",
+    component: SignUpUsuario
   },
   {
     path: '/user/home',

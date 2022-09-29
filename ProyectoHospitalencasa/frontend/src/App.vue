@@ -26,6 +26,7 @@
                   <li><a v-on:click="loadSignUpAuxiliar">Personal de la salud</a></li>
                   <li><a v-on:click="loadSignUpPaciente">Paciente</a></li>
                   <li><a v-on:click="loadSignUpFamiliar">Familiar</a></li>
+                  <li><a v-on:click="loadSignUpUsuario">Usuario</a></li>
                 </ul>
                 <!-- end menu desplegable -->
               </li>
@@ -87,6 +88,10 @@ export default {
 
     loadSignUpFamiliar: function () {
       this.$router.push({ name: "signUpFamiliar" })
+    },
+
+    loadSignUpUsuario: function () {
+      this.$router.push({ name: "signUpUsuario" })
     },
 
 
