@@ -9,7 +9,7 @@
                 <br>
                 <input type="password" v-model="user.password" placeholder="Contraseña">
                 <br>
-                <button type="submit">Ingresar </button>
+                <button type="submit" v-on="processLogInUser&&verificarUsuario">Ingresar </button>
             </form>
         </div>
 
@@ -25,6 +25,7 @@ export default {
     
     data: function(){
         return {
+            apiData:[],
             user: {
                 username:"",
                 password:""
@@ -33,27 +34,19 @@ export default {
     },
 
     methods: {
+        
+        verificarUsuario(){
+            localStorage.setItem("isAuth", true);
+            
+        },
         processLogInUser: function(){
-            axios.post(
-                "https://team-javi-g33.herokuapp.com/login/",
-                this.user,
-                {headers: {}}
-                )
+            axios.get("https://team-javi-g33.herokuapp.com/usuarioDetalles/",)
                 .then((result) => {
-                    let dataLogIn = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-    
-                    this.$emit('completedLogIn', dataLogIn)
+                    this.apiData = result.data
+                    
                 })
-                .catch((error) => {
-    
-                    if (error.response.status == "401")
-                        alert("ERROR 401: Credenciales Incorrectas.");
-                });
-        }
+                
+        },
     }
 }
 </script>

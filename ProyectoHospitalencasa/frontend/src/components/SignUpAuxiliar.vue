@@ -5,38 +5,16 @@
             <h2>Registro de Auxiliar</h2>
 
             <form v-on:submit.prevent="processSignUp">
-                <input type="text" v-model="user.username" placeholder="Usuario">
+                <select name="rol"  type="text" v-model="form.rol" placeholder="Rol">
+                    <option value="Medico">Medico</option>
+                    <option value="Auxiliar">Auxiliar</option>
+                    </select>
                 <br>
-                <select name="select">
-                    <option value="cedula" selected>Cedula de Ciudadania</option>
-                    <option value="tarjeta" >Tarjeta de Identidad</option>
-                    <option value="registro">Registro Civil</option>
-                </select>
+                <input  name="especialidad" v-model="form.especialidad" type="text"  placeholder="Especialidad">
                 <br>
-                <input type="number"  placeholder="Documento">
+                <input name="username_id" v-model="form.username" type="text" placeholder="Username_id">
                 <br>
-                <input type="text"  placeholder="Nombre">
-                <br>
-                <input type="text" placeholder="Apellido">
-                <br>
-                <select name="select">
-                    <option value="hombre" selected>Masculino</option>
-                    <option value="mujer" >Femenino</option>
-                    <option value="otros">No quiero especificar</option>
-                </select>
-                <br>
-                <input type="text"  placeholder="Paciente Relacionado">
-                <br>
-                <input type="text"  placeholder="Medico Relacionado">
-                <br>
-                <input type="password"  placeholder="Contraseña">
-                <br>
-                <input type="password"  placeholder="Repetir Contraseña">
-                <br>
-            
-            
-
-                <button type="submit">Registro</button>
+                <button type="submit"  v-on:click="guardarInfo">Guardar</button>
             </form>
         </div>
     </div>
@@ -58,28 +36,28 @@ export default {
                     balance: 0,
                     isActive: true
                 }
+            },
+            form:{
+                
+                "rol": "",
+                "especialidad": "",
+                "username": ""
             }
         }
     },
     methods: {
-        processSignUp: function () {
-            axios.post(
-                "https://team-javi-g33.herokuapp.com/user/",
-                this.user,
-                { headers: {} }
-            )
-                .then((result) => {
-                    let dataSignUp = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-                    this.$emit('completedSignUp', dataSignUp)
-                })
-                .catch((error) => {
-                    console.log(error)
-                    alert("ERROR: Fallo en el registro.");
-                });
+        
+        guardarInfo(){
+            axios.post('https://team-javi-g33.herokuapp.com/crearPsalud/',this.form).then(data=>{
+                // this.form.especialidad = ''
+                // this.form.rol = ''
+                // this.form.username = ''
+                alert('Registro creado.')
+            }).catch(err=>{
+            console.log(err)
+            console.log(this.form.rol)
+                alert('Error al guardar')
+            })
         }
     }
 }

@@ -49,6 +49,7 @@ export default {
             ids: '',
             apiData: [],
             username: localStorage.getItem('username') || "none"
+            
         }
     },
     created() {

@@ -5,42 +5,20 @@
             <h2>Registro de Paciente</h2>
 
             <form v-on:submit.prevent="processSignUp">
-                <input type="text" v-model="user.username" placeholder="Usuario">
+                <input type="number" v-model="form.id_psalud" placeholder="Medico Asignado">
                 <br>
-                <select name="select">
-                    <option value="cedula" selected>Cedula de Ciudadania</option>
-                    <option value="tarjeta" >Tarjeta de Identidad</option>
-                    <option value="registro">Registro Civil</option>
-                </select>
+                <input type="text" v-model="form.username"  placeholder="Usuario Asociado">
                 <br>
-                <input type="number"  placeholder="Documento">
+                <input type="text" v-model="form.direccion"  placeholder="Direccion">
                 <br>
-                <input type="text"  placeholder="Nombre">
+                <input type="text" v-model="form.ciudad" placeholder="Ciudad">
                 <br>
-                <input type="text" placeholder="Apellido">
-                <br>
-                <input type="text"  placeholder="Fecha de Nacimiento">
-                <br>
-                <input type="text"  placeholder="Teléfono">
-                <br>
-                <select name="select">
-                    <option value="hombre" selected>Masculino</option>
-                    <option value="mujer" >Femenino</option>
-                    <option value="otros">No quiero especificar</option>
-                </select>
-                <br>
-                <input type="text"  placeholder="Dirección">
-                <br>
-                <input type="text"  placeholder="Ciudad">
-                <br>
-                <input type="password"  placeholder="Contraseña">
-                <br>
-                <input type="password"  placeholder="Repetir Contraseña">
+                <input type="date" v-model="form.fecha_nacimiento"  placeholder="Fecha de Nacimiento">
                 <br>
             
             
 
-                <button type="submit">Registro</button>
+                <button type="submit" v-on:click="guardarInfo">Registro</button>
             </form>
         </div>
     </div>
@@ -52,40 +30,31 @@ export default {
     name: "SignUp",
     data: function () {
         return {
-            user: {
-                username: "",
-                password: "",
-                name: "",
-                email: "",
-                account: {
-                    lastChangeDate: (new Date()).toJSON().toString(),
-                    balance: 0,
-                    isActive: true
-                }
+            form:{
+                "id_psalud":0,
+                "username":"",
+                "direccion":"",
+                "ciudad":"",
+                "fecha_nacimiento":"",
+                
             }
         }
     },
     methods: {
-        processSignUp: function () {
-            axios.post(
-                "https://team-javi-g33.herokuapp.com/user/",
-                this.user,
-                { headers: {} }
-            )
-                .then((result) => {
-                    let dataSignUp = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-                    this.$emit('completedSignUp', dataSignUp)
-                })
-                .catch((error) => {
-                    console.log(error)
-                    alert("ERROR: Fallo en el registro.");
-                });
+        guardarInfo(){
+            axios.post('https://team-javi-g33.herokuapp.com/crearPciente/',this.form).then(data=>{
+                // this.form.especialidad = ''
+                // this.form.rol = ''
+                // this.form.username = ''
+                alert('Registro creado.')
+            }).catch(err=>{
+            console.log(err)
+            
+                alert('Error al guardar')
+            })
         }
     }
+    
 }
 </script>
 

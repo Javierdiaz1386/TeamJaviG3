@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import App from './App.vue';
 
 import LogIn from './components/LogIn.vue'
-import SignUpMedico from './components/SignUpMedico.vue'
+
 import SignUpAuxiliar from './components/SignUpAuxiliar.vue'
 import SignUpPaciente from './components/SignUpPaciente.vue'
 import SignUpFamiliar from './components/SignUpFamiliar.vue'
@@ -23,11 +23,7 @@ const routes = [{
     name: "logIn",
     component: LogIn
   },
-  {
-    path: '/user/signUpMedico',
-    name: "signUpMedico",
-    component: SignUpMedico
-  },
+  
   {
     path: '/user/signUpAuxiliar',
     name: "signUpAuxiliar",

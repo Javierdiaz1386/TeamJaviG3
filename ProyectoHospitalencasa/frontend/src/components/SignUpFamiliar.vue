@@ -2,43 +2,21 @@
 
     <div class="signUp_user">
         <div class="container_signUp_user">
-            <h2>Registro de Familiar</h2>
+            <h2>Registro de Auxiliar</h2>
 
             <form v-on:submit.prevent="processSignUp">
-                <input type="text" v-model="user.username" placeholder="Usuario">
+                <input type="text" v-model="form.parentesco" placeholder="Parentesco">
                 <br>
-                <select name="select">
-                    <option value="cedula" selected>Cedula de Ciudadania</option>
-                    <option value="tarjeta" >Tarjeta de Identidad</option>
-                    <option value="registro">Registro Civil</option>
-                </select>
+                <input type="email" v-model="form.correo" placeholder="Correo">
                 <br>
-                <input type="number"  placeholder="Documento">
+                <input type="text" v-model="form.paciente" placeholder="paciente">
                 <br>
-                <input type="text"  placeholder="Nombre">
+                <input type="text" v-model="form.username" placeholder="Username">
                 <br>
-                <input type="text" placeholder="Apellido">
-                <br>
-                <input type="text"  placeholder="Teléfono">
-                <br>
-                <select name="select">
-                    <option value="hombre" selected>Masculino</option>
-                    <option value="mujer" >Femenino</option>
-                    <option value="otros">No quiero especificar</option>
-                </select>
-                <br>
-                <input type="text"  placeholder="Paciente Relacionado">
-                <br>
-                <input type="text"  placeholder="Parentesco">
-                <br>
-                <input type="password"  placeholder="Contraseña">
-                <br>
-                <input type="password"  placeholder="Repetir Contraseña">
-                <br>
-            
+               
             
 
-                <button type="submit">Registro</button>
+                <button type="submit" v-on:click="guardarInfo">Registro</button>
             </form>
         </div>
     </div>
@@ -50,38 +28,28 @@ export default {
     name: "SignUp",
     data: function () {
         return {
-            user: {
-                username: "",
-                password: "",
-                name: "",
-                email: "",
-                account: {
-                    lastChangeDate: (new Date()).toJSON().toString(),
-                    balance: 0,
-                    isActive: true
-                }
+            form:{
+                
+                "parentesco": "",
+                "correo": "",
+                "paciente": "",
+                "username":""
             }
         }
     },
     methods: {
-        processSignUp: function () {
-            axios.post(
-                "https://team-javi-g33.herokuapp.com/user/",
-                this.user,
-                { headers: {} }
-            )
-                .then((result) => {
-                    let dataSignUp = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-                    this.$emit('completedSignUp', dataSignUp)
-                })
-                .catch((error) => {
-                    console.log(error)
-                    alert("ERROR: Fallo en el registro.");
-                });
+        
+        guardarInfo(){
+            axios.post('https://team-javi-g33.herokuapp.com/crearFamiliar/',this.form).then(data=>{
+                // this.form.especialidad = ''
+                // this.form.rol = ''
+                // this.form.username = ''
+                alert('Registro creado.')
+            }).catch(err=>{
+            console.log(err)
+            console.log(this.form.rol)
+                alert('Error al guardar')
+            })
         }
     }
 }

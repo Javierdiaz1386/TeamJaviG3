@@ -10,7 +10,7 @@
             <!-- start menu -->
             <ul>
               <li><a v-on:click="loadHome">Inicio</a></li>
-              <li><a >Consulta</a>
+              <li ><a >Consulta</a>
                 <!-- start menu desplegable -->
                 <ul>
                   <li><a v-on:click="loadDetailedSearch">Detallada</a></li>
@@ -22,8 +22,8 @@
               <li><a >Registrarse</a>
                 <!-- start menu desplegable -->
                 <ul>
-                  <li><a v-on:click="loadSignUpMedico">Médico</a></li>
-                  <li><a v-on:click="loadSignUpAuxiliar">Auxiliar</a></li>
+                 
+                  <li><a v-on:click="loadSignUpAuxiliar">Personal de la salud</a></li>
                   <li><a v-on:click="loadSignUpPaciente">Paciente</a></li>
                   <li><a v-on:click="loadSignUpFamiliar">Familiar</a></li>
                 </ul>
@@ -40,7 +40,9 @@
 
     <div class="main-component">
       <div class="main-component">
-        <router-view v-on:completedLogIn="completedLogIn" v-on:completedSignUp="completedSignUp" v-on:logOut="logOut">
+        <router-view v-on:completedLogIn="completedLogIn" 
+        v-on:completedSignUp="completedSignUp" 
+        v-on:logOut="logOut">
         </router-view>
       </div>
     </div>
@@ -73,9 +75,7 @@ export default {
       this.$router.push({ name: "logIn" })
     },
 
-    loadSignUpMedico: function () {
-      this.$router.push({ name: "signUpMedico" })
-    },
+
 
     loadSignUpAuxiliar: function () {
       this.$router.push({ name: "signUpAuxiliar" })
@@ -113,13 +113,11 @@ export default {
     loadDetailedSearch: function () {
       this.$router.push({ name: "DetailedSearch" });
     },
-    completedLogIn: function (data) {
+    completedLogIn: function () {
       localStorage.setItem("isAuth", true);
-      localStorage.setItem("username", data.username);
-      localStorage.setItem("token_access", data.token_access);
-      localStorage.setItem("token_refresh", data.token_refresh);
+      
       alert("Autenticación Exitosa");
-      this.verifyAuth();
+
     },
 
     completedSignUp: function (data) {

@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from hospitalApp.views import PsaludViews, PacienteViews, FamiliarViews, PacienteDetallesViews, PacienteIndividualDetallesViews
+from hospitalApp.views import PsaludViews, PacienteViews, FamiliarViews, PacienteDetallesViews, PacienteIndividualDetallesViews, UsersDetallesViews
 
 
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('crearFamiliar/', FamiliarViews.as_view(), name='familiar'),
     path('pacienteDetalles/', PacienteDetallesViews.as_view(), name='detallesviews'),
     path('pacienteDetalles/<int:id>', PacienteIndividualDetallesViews.as_view(), name='detallesindividualviews'),
+     path('usuarioDetalles/', UsersDetallesViews.as_view(), name='usersviews'),
 ]
